@@ -1,0 +1,25 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# CRITICAL: NEVER commit the keygen private key. Anyone with this file
+# can mint licenses indistinguishable from yours.
+keygen/PRIVATE_KEY.txt
+keygen/*.pem
+keygen/*.key
+
+# Issued licenses (these contain customer emails — treat as PII)
+licenses/
+
+# Local virtualenvs
+.venv/
+venv/

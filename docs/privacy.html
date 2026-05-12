@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy policy — Chain Ladder</title>
+    <meta name="description" content="Privacy policy for the mcp-chainladder MCP server and Chain Ladder Pro license tier.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="./" class="nav-brand">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0b1f41"/><stop offset="100%" stop-color="#0e73cd"/></linearGradient></defs>
+                <rect width="64" height="64" rx="14" fill="url(#g)"/>
+                <g fill="white" fill-opacity="0.92"><rect x="13" y="46" width="6" height="6" rx="1"/><rect x="20" y="46" width="6" height="6" rx="1"/><rect x="27" y="46" width="6" height="6" rx="1"/><rect x="34" y="46" width="6" height="6" rx="1"/><rect x="41" y="46" width="6" height="6" rx="1"/><rect x="13" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="20" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="27" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="34" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="13" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="20" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="27" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="13" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="20" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="13" y="18" width="6" height="6" rx="1" fill-opacity="0.55"/></g>
+                <path d="M19 18 L19 25 L26 25 L26 32 L33 32 L33 39 L40 39 L40 46 L47 46" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chain Ladder
+        </a>
+        <div class="nav-links">
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<article class="container">
+    <h1>Privacy policy</h1>
+    <p class="meta">Last updated: 13 May 2026</p>
+
+    <p>
+        Chain Ladder is a calculation tool. It runs locally on your machine —
+        every triangle you analyse, every CSV you load, and every result you
+        see lives on your computer and goes nowhere else. This page exists
+        because the App Store, the MCP Connectors directory, and a few other
+        listings require a privacy policy URL. It's also genuinely how the
+        product is built.
+    </p>
+
+    <h2>What we collect</h2>
+
+    <p>
+        <strong>Nothing.</strong> The MCP server makes no network requests of
+        any kind. There is no analytics, no telemetry, no error reporting, and
+        no usage tracking. The source code is open and you are welcome to
+        verify this yourself at
+        <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">
+            github.com/dataanalyticsactuary/mcp-chainladder</a>.
+    </p>
+
+    <h2>What stays on your machine</h2>
+
+    <ul>
+        <li>The loss triangles, factors, and projections you compute</li>
+        <li>The CSV files you import and any PDF or CSV exports you save</li>
+        <li>Your Pro license file at <code>~/.chainladder/license</code></li>
+        <li>Your settings, including any custom LOB names or row labels</li>
+    </ul>
+
+    <p>
+        Claude (the LLM client) sees the same data Claude already sees in any
+        conversation — your prompts and the JSON responses from each tool
+        call. Anthropic's privacy policy at
+        <a href="https://www.anthropic.com/legal/privacy">anthropic.com/legal/privacy</a>
+        governs what happens to that data on their side; that's outside our
+        control. If you're handling client-confidential reserving data,
+        consider the same precautions you would in any LLM conversation
+        about it (e.g., redact identifiers, use a private deployment).
+    </p>
+
+    <h2>Pro tier purchases</h2>
+
+    <p>
+        If you buy a Pro license, your name and email are processed by our
+        payment provider (Stripe, Lemon Squeezy, or Gumroad depending on the
+        checkout link you use). That happens entirely on their infrastructure;
+        we receive a receipt event, generate a signed license file, and email
+        it to you. After that, we keep:
+    </p>
+
+    <ul>
+        <li>Your email address (to contact you about license renewals or
+            critical security updates only)</li>
+        <li>The license key string we issued (so we can reissue if you lose
+            the file)</li>
+        <li>The purchase date and provider transaction ID (for refund support
+            and tax reporting)</li>
+    </ul>
+
+    <p>
+        We do not share any of this with third parties beyond what's required
+        to deliver the product to you. We never sell email addresses or any
+        other personal data. Email
+        <a href="mailto:support@chainladder.app">support@chainladder.app</a>
+        to request deletion or export of your purchase record under GDPR /
+        CCPA / equivalent — we'll action within 14 days.
+    </p>
+
+    <h2>Cookies, fonts, scripts</h2>
+
+    <p>
+        This marketing site loads no cookies, no JavaScript, no remote fonts,
+        and no analytics. The stylesheet is self-contained and uses system
+        fonts only. The MCP server itself loads nothing over the network at
+        runtime.
+    </p>
+
+    <h2>Changes to this policy</h2>
+
+    <p>
+        If we ever change anything material here, we'll update the date at
+        the top, post a note in the GitHub release notes, and (if you're a
+        Pro customer) email you. Substantive changes get at least 30 days'
+        notice before they take effect.
+    </p>
+
+    <h2>Contact</h2>
+
+    <p>
+        Questions: <a href="mailto:support@chainladder.app">support@chainladder.app</a>.
+        We read every message and aim to reply within two business days.
+    </p>
+</article>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Data Analytics Actuary · MIT-licensed source on <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a></p>
+        <div class="footer-links">
+            <a href="./">Home</a>
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro tier</a>
+            <a href="https://pypi.org/project/mcp-chainladder/">PyPI</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

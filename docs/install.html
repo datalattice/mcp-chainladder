@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Install — Chain Ladder</title>
+    <meta name="description" content="Install mcp-chainladder and wire it into Claude Desktop, Cursor, Cline, or any other MCP-aware client.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="./" class="nav-brand">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0b1f41"/><stop offset="100%" stop-color="#0e73cd"/></linearGradient></defs>
+                <rect width="64" height="64" rx="14" fill="url(#g)"/>
+                <g fill="white" fill-opacity="0.92"><rect x="13" y="46" width="6" height="6" rx="1"/><rect x="20" y="46" width="6" height="6" rx="1"/><rect x="27" y="46" width="6" height="6" rx="1"/><rect x="34" y="46" width="6" height="6" rx="1"/><rect x="41" y="46" width="6" height="6" rx="1"/><rect x="13" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="20" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="27" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="34" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="13" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="20" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="27" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="13" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="20" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="13" y="18" width="6" height="6" rx="1" fill-opacity="0.55"/></g>
+                <path d="M19 18 L19 25 L26 25 L26 32 L33 32 L33 39 L40 39 L40 46 L47 46" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chain Ladder
+        </a>
+        <div class="nav-links">
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<article class="container">
+    <h1>Install</h1>
+    <p class="meta">Total time: under two minutes if you already have Python 3.10+. No build step, no compilation.</p>
+
+    <h2>Step 1 — install the server</h2>
+
+    <p>Pick whichever fits your workflow. <code>uvx</code> is the
+    lightest-touch — it runs the latest release on demand and never
+    installs anything globally:</p>
+
+    <pre class="example">uvx mcp-chainladder
+# or, for a one-time install on your PATH:
+pipx install mcp-chainladder
+# or, into any virtualenv:
+pip install mcp-chainladder</pre>
+
+    <p>If <code>uvx</code> isn't installed, get it with
+    <code>brew install uv</code> (macOS) or <code>pip install uv</code>
+    (cross-platform).</p>
+
+    <h2>Step 2 — wire it into your MCP client</h2>
+
+    <h3>Claude Desktop</h3>
+
+    <p>Edit the config file at:</p>
+
+    <ul>
+        <li><strong>macOS</strong>: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+        <li><strong>Windows</strong>: <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+        <li><strong>Linux</strong>: <code>~/.config/Claude/claude_desktop_config.json</code></li>
+    </ul>
+
+    <p>Add the <code>chainladder</code> entry:</p>
+
+    <pre class="example">{
+  "mcpServers": {
+    "chainladder": {
+      "command": "uvx",
+      "args": ["mcp-chainladder"]
+    }
+  }
+}</pre>
+
+    <p>Quit and relaunch Claude Desktop. The chain-ladder tools now
+    appear under the 🔌 icon at the bottom-left of any conversation.</p>
+
+    <h3>Cursor</h3>
+
+    <p>Cursor uses the same config shape, at <code>~/.cursor/mcp.json</code>
+    on macOS. Add the same <code>mcpServers</code> block as above.</p>
+
+    <h3>Cline (VS Code)</h3>
+
+    <p>Open the Cline sidebar → click the ⚙ icon → <em>MCP Servers</em>
+    → <em>Edit</em>. Paste the same JSON block and save.</p>
+
+    <h3>Continue (VS Code / JetBrains)</h3>
+
+    <p>Edit <code>~/.continue/config.json</code> and add the same block
+    inside a top-level <code>mcpServers</code> key.</p>
+
+    <h3>Zed</h3>
+
+    <p>Zed → Settings → search for "Context Servers" → add a new entry:
+    name <code>chainladder</code>, command <code>uvx</code>, args
+    <code>["mcp-chainladder"]</code>.</p>
+
+    <h2>Step 3 — try a sample conversation</h2>
+
+    <p>Ask Claude anything that needs chain-ladder math. Examples:</p>
+
+    <pre class="example">"Use the sample triangle and tell me the IBNR."
+
+"I have a paid-loss triangle at ~/Desktop/motor.csv.
+ Run the chain ladder and flag any diagnostic concerns."
+
+"Check whether AY 3's link ratios are outliers.
+ Show me what excluding them does to the IBNR."
+
+"Project the textbook triangle out 6 more years using
+ an exponential tail fit."   (Pro tier — see pro.html)</pre>
+
+    <h2>Activate Pro (optional)</h2>
+
+    <p>After purchasing a license at
+    <a href="pro.html">chainladder.app/pro</a>, you'll receive a
+    <code>.license</code> file by email. Install it at:</p>
+
+    <pre class="example">mkdir -p ~/.chainladder
+mv ~/Downloads/your-name.license ~/.chainladder/license</pre>
+
+    <p>Restart Claude Desktop. Ask Claude
+    <em>"check my Chain Ladder Pro license status"</em> — if you see
+    "Pro license active for <em>your-email</em>", you're done.</p>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>"uvx: command not found"</h3>
+    <p>Install <code>uv</code>: <code>brew install uv</code> (macOS) or
+    <code>pip install uv</code> (anywhere). Or use the
+    <code>pipx</code> install path above; both work.</p>
+
+    <h3>Claude Desktop doesn't show the tools</h3>
+    <p>Three things to check:</p>
+    <ol>
+        <li>Did you quit and relaunch Claude Desktop completely? Cmd+Q
+            on macOS — not just close the window.</li>
+        <li>Is the JSON valid? Run
+            <code>cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | python3 -m json.tool</code>
+            and confirm it parses.</li>
+        <li>Run the server manually:
+            <code>uvx mcp-chainladder &lt; /dev/null</code> — it should
+            exit cleanly with code 0. If it errors, the error message
+            tells you what's wrong (usually a Python-version mismatch).</li>
+    </ol>
+
+    <h3>"pro_license_required" even after installing the license</h3>
+    <p>The license file lives at <code>~/.chainladder/license</code>
+    exactly — no extension, no rename. Inside is a JSON file with the
+    signature your seller's keygen issued. Check that you copied the
+    file (not a screenshot or its contents) and that
+    <code>file ~/.chainladder/license</code> reports "ASCII text" or
+    "JSON".</p>
+
+    <h2>What's next</h2>
+    <ul>
+        <li>Read the <a href="./">tools overview</a> on the homepage</li>
+        <li>Skim the <a href="https://github.com/dataanalyticsactuary/mcp-chainladder/tree/main/examples">worked examples</a></li>
+        <li>Star <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">the GitHub repo</a> so you'll see new releases</li>
+    </ul>
+</article>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Data Analytics Actuary · MIT-licensed source on <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a></p>
+        <div class="footer-links">
+            <a href="./">Home</a>
+            <a href="pro.html">Pro tier</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://pypi.org/project/mcp-chainladder/">PyPI</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

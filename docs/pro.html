@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pro tier — Chain Ladder</title>
+    <meta name="description" content="Chain Ladder Pro unlocks Bornhuetter-Ferguson, interpretive diagnostics, sensitivity ranking, and tail extrapolation tools for Claude.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="./" class="nav-brand">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0b1f41"/><stop offset="100%" stop-color="#0e73cd"/></linearGradient></defs>
+                <rect width="64" height="64" rx="14" fill="url(#g)"/>
+                <g fill="white" fill-opacity="0.92"><rect x="13" y="46" width="6" height="6" rx="1"/><rect x="20" y="46" width="6" height="6" rx="1"/><rect x="27" y="46" width="6" height="6" rx="1"/><rect x="34" y="46" width="6" height="6" rx="1"/><rect x="41" y="46" width="6" height="6" rx="1"/><rect x="13" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="20" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="27" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="34" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/><rect x="13" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="20" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="27" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/><rect x="13" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="20" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/><rect x="13" y="18" width="6" height="6" rx="1" fill-opacity="0.55"/></g>
+                <path d="M19 18 L19 25 L26 25 L26 32 L33 32 L33 39 L40 39 L40 46 L47 46" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chain Ladder
+        </a>
+        <div class="nav-links">
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero container">
+    <h1>Chain Ladder Pro</h1>
+    <p class="tagline">
+        Unlock five additional Pro tools: Bornhuetter-Ferguson, interpretive
+        diagnostics, sensitivity ranking, tail extrapolation, and one-call
+        method comparison. $29 perpetual, one machine, no renewal.
+    </p>
+    <div class="hero-cta">
+        <!-- Replace the href below with your real checkout URL once you
+             have Stripe / Gumroad / Lemon Squeezy wired up. -->
+        <a href="https://buy.stripe.com/chainladder-pro" class="cta cta-primary">Buy Pro &nbsp;→</a>
+        <a href="install.html" class="cta cta-secondary">Try free first</a>
+    </div>
+</header>
+
+<section class="container">
+    <h2>What you unlock</h2>
+    <p class="subhead">Each of these is a real tool Claude will pick automatically when the conversation calls for it. No new prompting to learn.</p>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+            <h3>interpret_diagnostics</h3>
+            <p>Mack tests with verdict labels — "strong evidence", "significant", "borderline", "no evidence" — plus plain-English summaries and a recommended action for each finding. The result Claude can read back without further interpretation.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><circle cx="9" cy="15" r="2"/><circle cx="16" cy="9" r="2"/></svg>
+            <h3>sensitivity_analysis</h3>
+            <p>Drop each link ratio one-at-a-time and rank the cells by IBNR impact. Finds the few observations driving the projection in one call instead of dozens of trial-and-error excludes.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            <h3>tail_extrapolation</h3>
+            <p>Fits exponential decay and inverse-power models to the late development factors, picks the better R², and reports the implied tail factor to plug back into <code>compute_chain_ladder</code>.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+            <h3>bornhuetter_ferguson</h3>
+            <p>Classic BF projection with your a-priori ultimates. Returns BF + chain-ladder ultimates side-by-side so you see where the two methods agree and where they diverge — the canonical "second opinion".</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12l-4 4 4 4"/><path d="M16 4l4 4-4 4"/><path d="M4 16h16"/><path d="M4 8h16"/></svg>
+            <h3>compare_methods</h3>
+            <p>One call that runs both chain-ladder and BF, reports per-AY differences, identifies the largest divergence, and gives a plain-English read on whether CL is being aggressive or conservative.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <h3>pro_license_status</h3>
+            <p>Free to call — inspect license state any time. Returns active/inactive, registered owner, expiry date, and a human-readable message. Useful for troubleshooting after installation.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>What's on the roadmap</h2>
+    <p class="subhead">Everything below ships free of charge to anyone who buys Pro today — that's the deal, one $29 unlocks all future Pro tools.</p>
+    <ul style="margin: 0; padding-left: 22px; color: var(--muted); font-size: 15px; line-height: 2;">
+        <li><strong>generate_pdf_report</strong> — full 5-page actuarial PDF (cover, triangle, factors, results, 3D loss surface)</li>
+        <li><strong>batch_csv_processing</strong> — fold the chain ladder over a directory of triangles</li>
+        <li><strong>cape_cod</strong> — Cape Cod method (derives the a-priori loss ratio from the triangle itself)</li>
+        <li><strong>mack_bf</strong> — Mack stochastic estimation applied to a BF projection (Mack 2000)</li>
+        <li><strong>glm_tweedie</strong> — generalised linear model alternative for skewed loss distributions</li>
+    </ul>
+</section>
+
+<section class="container">
+    <h2>Pricing</h2>
+    <p class="subhead">One price. One purchase. Lifetime updates within the v1.x line.</p>
+    <div class="pricing">
+        <div class="price-card">
+            <h3>Chain Ladder Pro</h3>
+            <div class="price-amount">$29 <small>perpetual</small></div>
+            <ul>
+                <li>All 5 Pro tools, unlocked immediately</li>
+                <li>All future Pro tools, free of charge</li>
+                <li>One license per machine, transferable</li>
+                <li>Email support, 30-day refund</li>
+                <li>License never expires; works offline</li>
+                <li>Source-available under MIT</li>
+            </ul>
+            <a href="https://buy.stripe.com/chainladder-pro" class="cta cta-primary" style="display:block;">Buy Pro &nbsp;→</a>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>FAQ</h2>
+
+    <h3 style="margin-top:0;">Is this actuarial advice?</h3>
+    <p style="color: var(--muted);">No. Chain Ladder is a calculation tool. Selection of data, factors, tails, exclusions, and the interpretation of stochastic error measures require professional actuarial judgement. The Pro tools give you better analytics and better summaries, not better advice — the judgement call still belongs to you.</p>
+
+    <h3>What happens to my data?</h3>
+    <p style="color: var(--muted);">Nothing leaves your machine. The MCP server makes no network calls, and the license file is verified locally with an embedded public key. See <a href="privacy.html">the privacy policy</a> for specifics.</p>
+
+    <h3>Can I install it on multiple machines?</h3>
+    <p style="color: var(--muted);">Each license is intended for one machine. We don't lock you in — if you bought one license and use it on your laptop and a server, we won't kick down your door. But if you're rolling it out across a 20-person team, please buy 20 licenses (it directly funds the next Pro tools).</p>
+
+    <h3>What's your refund policy?</h3>
+    <p style="color: var(--muted);">If Pro doesn't do what you need within 30 days of purchase, email <a href="mailto:support@chainladder.app">support@chainladder.app</a> and we'll refund in full. No questions, no forms, just a same-week refund.</p>
+
+    <h3>Will the price stay at $29?</h3>
+    <p style="color: var(--muted);">We may raise prices as more Pro tools land. Whatever price you pay today, that's the price — you're locked in for all v1.x updates and you'll never get a "renew or lose access" email.</p>
+
+    <h3>Is there a team / firm license?</h3>
+    <p style="color: var(--muted);">Not yet. If you'd buy a $299 site license for an unlimited-seat firm bundle, email and tell us — that's how we'll know to build it.</p>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="disclaimer">
+            <strong>Calculation only — not actuarial advice.</strong> The Pro tier expands the analytics surface; it does not change the professional-judgement obligation that ultimately rests with you.
+        </div>
+        <p>© 2026 Data Analytics Actuary · MIT-licensed source on <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a></p>
+        <div class="footer-links">
+            <a href="./">Home</a>
+            <a href="install.html">Install</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://pypi.org/project/mcp-chainladder/">PyPI</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

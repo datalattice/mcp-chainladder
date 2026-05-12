@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-chainladder"
+version = "1.2.0"
+description = "Model Context Protocol server for actuarial chain-ladder reserving — exposes triangle math, Mack stochastic stats, and diagnostics as Claude tools."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Data Analytics Actuary" }
+]
+keywords = [
+    "actuarial", "chain-ladder", "reserving", "ibnr",
+    "mack", "triangle", "loss-development", "mcp",
+    "model-context-protocol", "claude"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "cryptography>=41",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dataanalyticsactuary/mcp-chainladder"
+Issues   = "https://github.com/dataanalyticsactuary/mcp-chainladder/issues"
+
+[project.scripts]
+# Entry point — `pipx run mcp-chainladder` or `uvx mcp-chainladder` runs
+# the MCP server over stdio, ready to be wired into Claude Desktop.
+mcp-chainladder = "mcp_chainladder.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_chainladder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

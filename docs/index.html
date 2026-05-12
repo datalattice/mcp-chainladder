@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chain Ladder — actuarial reserving for Claude</title>
+    <meta name="description" content="A Model Context Protocol server that hands Claude the tools for actuarial chain-ladder reserving — factors, IBNR, Mack stochastic stats, and assumption diagnostics.">
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Chain Ladder — actuarial reserving for Claude">
+    <meta property="og:description" content="MCP server for chain-ladder reserving, Mack diagnostics, and Bornhuetter-Ferguson. No network access, no telemetry, pure local calculation.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="./" class="nav-brand">
+            <!-- Inline SVG logo: navy/blue staircase triangle echoing the macOS app icon -->
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%"  stop-color="#0b1f41"/>
+                        <stop offset="100%" stop-color="#0e73cd"/>
+                    </linearGradient>
+                </defs>
+                <rect width="64" height="64" rx="14" fill="url(#g)"/>
+                <g fill="white" fill-opacity="0.92">
+                    <rect x="13" y="46" width="6" height="6" rx="1"/>
+                    <rect x="20" y="46" width="6" height="6" rx="1"/>
+                    <rect x="27" y="46" width="6" height="6" rx="1"/>
+                    <rect x="34" y="46" width="6" height="6" rx="1"/>
+                    <rect x="41" y="46" width="6" height="6" rx="1"/>
+                    <rect x="13" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/>
+                    <rect x="20" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/>
+                    <rect x="27" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/>
+                    <rect x="34" y="39" width="6" height="6" rx="1" fill-opacity="0.85"/>
+                    <rect x="13" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/>
+                    <rect x="20" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/>
+                    <rect x="27" y="32" width="6" height="6" rx="1" fill-opacity="0.75"/>
+                    <rect x="13" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/>
+                    <rect x="20" y="25" width="6" height="6" rx="1" fill-opacity="0.65"/>
+                    <rect x="13" y="18" width="6" height="6" rx="1" fill-opacity="0.55"/>
+                </g>
+                <!-- Red ridge along the diagonal -->
+                <path d="M19 18 L19 25 L26 25 L26 32 L33 32 L33 39 L40 39 L40 46 L47 46"
+                      fill="none" stroke="#ef4444" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chain Ladder
+        </a>
+        <div class="nav-links">
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero container">
+    <h1>Actuarial chain-ladder reserving — built for Claude.</h1>
+    <p class="tagline">
+        A Model Context Protocol server that hands Claude eight tools for
+        loss-triangle math, Mack stochastic estimation, and assumption
+        diagnostics. Hook it up in one minute, then ask in plain English.
+    </p>
+    <div class="hero-cta">
+        <a href="install.html" class="cta cta-primary">Install &nbsp;→</a>
+        <a href="pro.html"     class="cta cta-secondary">Pro tier · $29</a>
+    </div>
+    <div class="install">
+        <p>Try it now</p>
+        <code>uvx mcp-chainladder</code>
+    </div>
+</header>
+
+<section class="container">
+    <h2>What it does</h2>
+    <p class="subhead">Eight tools, picked automatically — you don't have to know their names.</p>
+    <div class="feature-grid">
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l4-4M3 3l18 18M21 3v6M21 9h-6"/></svg>
+            <h3>Chain-ladder projection</h3>
+            <p>Volume- and simple-averaged factors, CDF to ultimate, latest-diagonal extraction, IBNR per AY + total — the whole machinery in one call.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 4-6"/></svg>
+            <h3>Mack stochastic estimation</h3>
+            <p>Distribution-free standard errors and coefficients of variation per accident row and total, computed exactly per Mack (1993).</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3>Assumption diagnostics</h3>
+            <p>Calendar-year sign test, Spearman independence, inflation slope, and standardised-residual outlier flagging — all the assumption checks Mack (1994) recommends.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            <h3>CSV-aware</h3>
+            <p>Hand Claude a path. It parses your triangle (NA, dashes, thousand-comma quirks all handled) and runs the chain ladder on it.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7"/><path d="M16 16l3 3 3-3"/><path d="M19 19V11"/></svg>
+            <h3>Cumulative ↔ incremental</h3>
+            <p>Switch triangle shapes losslessly. Round-trips preserve unobserved cells exactly so you don't lose information mid-analysis.</p>
+        </div>
+        <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg>
+            <h3>Pure local, zero network</h3>
+            <p>No HTTP calls, no analytics, no telemetry. Every triangle stays on your machine. Pop-up the source and check — it's under 1,200 LOC.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Free vs Pro</h2>
+    <p class="subhead">Free covers the core projection + stochastic + diagnostics. Pro adds interpretive analytics and additional reserving methods.</p>
+    <table class="tier">
+        <thead>
+            <tr>
+                <th>Tool</th>
+                <th class="center">Free</th>
+                <th class="center">Pro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>compute_chain_ladder</code> — full projection</td>            <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>project_triangle</code> — fill lower-right</td>                <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>mack_stochastic</code> — Mack (1993) SE/CV</td>                <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>mack_diagnostics</code> — raw Mack tests</td>                  <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>parse_csv_triangle</code> — load from CSV</td>                 <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>to_incremental</code> / <code>to_cumulative</code></td>       <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>sample_triangle</code> — textbook demo</td>                   <td class="center check">✓</td><td class="center check">✓</td></tr>
+            <tr><td><code>interpret_diagnostics</code> — verdict labels + plain-English summaries</td><td class="center dash">—</td><td class="center check">✓</td></tr>
+            <tr><td><code>sensitivity_analysis</code> — drop-one-out IBNR impact ranking</td>         <td class="center dash">—</td><td class="center check">✓</td></tr>
+            <tr><td><code>tail_extrapolation</code> — exponential + inverse-power fits</td>          <td class="center dash">—</td><td class="center check">✓</td></tr>
+            <tr><td><code>bornhuetter_ferguson</code> — BF with CL side-by-side</td>                 <td class="center dash">—</td><td class="center check">✓</td></tr>
+            <tr><td><code>compare_methods</code> — CL + BF in one call</td>                         <td class="center dash">—</td><td class="center check">✓</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="container">
+    <h2>What a conversation looks like</h2>
+    <p class="subhead">Once installed, ask Claude in plain English. The MCP makes the right tool calls under the hood.</p>
+    <pre class="example"><span class="me">You</span>
+I have a paid-loss triangle at ~/Desktop/motor.csv. Run the chain
+ladder, flag any diagnostic concerns, and recommend whether I can
+publish this as a reserve.
+
+<span class="claude">Claude</span> <span class="me">(calls parse_csv_triangle + compute_chain_ladder + interpret_diagnostics)</span>
+
+Loaded a 10×10 cumulative triangle. Volume-weighted factors give:
+  • Paid to date:    49,458 USD
+  • Ultimate:        65,883 USD
+  • IBNR:            16,425 USD
+  • Mack SE total:   ±354.61 USD (CV 0.54%)
+
+Diagnostics:
+  • Calendar-year (Tarbell):       Z=0.00, p=1.000 — no evidence
+  • Independence (Spearman):       Z=-0.35, p=0.726 — no evidence
+  • Inflation slope:               β=0.053, p=1.3e-12 — STRONG evidence
+  • Outliers (|residual| > 2):     none
+
+Recommendation: link ratios drift upward by ~5%/AY (statistically
+strong). Before publishing, weight only the last 3–5 AYs and compare
+against a Bornhuetter-Ferguson cross-check.</pre>
+</section>
+
+<section class="container">
+    <h2>Pricing</h2>
+    <p class="subhead">Free for everyone. Pro is a one-time purchase that unlocks BF, sensitivity, tail fits, and interpretive diagnostics.</p>
+    <div class="pricing">
+        <div class="price-card">
+            <h3>Chain Ladder Pro</h3>
+            <div class="price-amount">$29 <small>perpetual</small></div>
+            <ul>
+                <li>Bornhuetter-Ferguson + CL side-by-side</li>
+                <li>Interpretive diagnostics — plain-English verdicts</li>
+                <li>Drop-one-out sensitivity ranking</li>
+                <li>Tail extrapolation (exp / inv-power)</li>
+                <li>All future Pro tools, free of charge</li>
+                <li>Email support, 30-day refund</li>
+            </ul>
+            <a href="pro.html" class="cta cta-primary" style="display:block;">Buy Pro &nbsp;→</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="disclaimer">
+            <strong>Calculation only — not actuarial advice.</strong> Selection of data, factors, tails, exclusions, and the interpretation of stochastic error measures require professional judgement by a qualified actuary, who remains solely responsible for the use and onward reliance on these outputs.
+        </div>
+        <p>© 2026 Data Analytics Actuary · MIT-licensed source on <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a></p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="install.html">Install</a>
+            <a href="pro.html">Pro tier</a>
+            <a href="https://pypi.org/project/mcp-chainladder/">PyPI</a>
+            <a href="https://github.com/dataanalyticsactuary/mcp-chainladder">GitHub</a>
+            <a href="https://modelcontextprotocol.io">MCP spec</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
