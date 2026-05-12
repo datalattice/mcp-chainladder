@@ -29,7 +29,7 @@ fi
 git commit -m "Initial commit — mcp-chainladder v1.2.0"
 
 # Create the GitHub repo + push.
-gh repo create dataanalyticsactuary/mcp-chainladder \
+gh repo create datalattice/mcp-chainladder \
     --public \
     --description "MCP server for actuarial chain-ladder reserving — factors, IBNR, Mack stats, diagnostics, BF, and more." \
     --source=. \

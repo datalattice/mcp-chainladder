@@ -70,12 +70,12 @@ before going live:
 |------|--------------|
 | `https://buy.stripe.com/chainladder-pro` | Your real checkout URL |
 | `support@chainladder.app` | Your real support email |
-| `dataanalyticsactuary/mcp-chainladder` | Your real GitHub org/repo |
+| `datalattice/mcp-chainladder` | Your real GitHub org/repo |
 | `https://chainladder.app/` | Your real homepage URL (only matters if you use a domain other than `chainladder.app`) |
 
 ```bash
 # Quick search:
-grep -rn "chainladder-pro\|support@chainladder\|dataanalyticsactuary" docs/
+grep -rn "chainladder-pro\|support@chainladder\|datalattice" docs/
 ```
 
 ## Page-level testing

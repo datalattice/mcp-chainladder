@@ -41,8 +41,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/dataanalyticsactuary/mcp-chainladder"
-Issues   = "https://github.com/dataanalyticsactuary/mcp-chainladder/issues"
+Homepage = "https://github.com/datalattice/mcp-chainladder"
+Issues   = "https://github.com/datalattice/mcp-chainladder/issues"
 
 [project.scripts]
 # Entry point — `pipx run mcp-chainladder` or `uvx mcp-chainladder` runs

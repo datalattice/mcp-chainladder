@@ -32,7 +32,7 @@ where you can submit yourself.
 | Description (short, ≤140 chars) | *Actuarial chain-ladder reserving for cumulative loss triangles — factors, IBNR, Mack stochastic stats, and assumption diagnostics.* |
 | Long description | Use the README's "What it does" + tools table |
 | Category | `finance` (or `data-analysis` — both apply) |
-| Repository URL | `https://github.com/dataanalyticsactuary/mcp-chainladder` |
+| Repository URL | `https://github.com/datalattice/mcp-chainladder` |
 | Homepage | `https://chainladder.app` (if/when you have one) |
 | License | MIT |
 | Author | Data Analytics Actuary |
@@ -80,7 +80,7 @@ description: |
   Actuarial chain-ladder reserving for cumulative loss triangles —
   factors, IBNR, Mack (1993) stochastic stats, and Mack (1994)
   assumption diagnostics. Pure-Python, no network access.
-url: https://github.com/dataanalyticsactuary/mcp-chainladder
+url: https://github.com/datalattice/mcp-chainladder
 language: python
 category:
   - finance
