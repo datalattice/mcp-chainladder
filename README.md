@@ -1,5 +1,7 @@
 # mcp-chainladder
 
+<!-- mcp-name: io.github.datalattice/mcp-chainladder -->
+
 [![PyPI](https://img.shields.io/pypi/v/mcp-chainladder.svg)](https://pypi.org/project/mcp-chainladder/)
 [![Python](https://img.shields.io/pypi/pyversions/mcp-chainladder.svg)](https://pypi.org/project/mcp-chainladder/)
 [![License](https://img.shields.io/pypi/l/mcp-chainladder.svg)](LICENSE)

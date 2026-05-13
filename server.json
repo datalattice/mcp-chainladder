@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.datalattice/mcp-chainladder",
+  "description": "Actuarial chain-ladder reserving for cumulative loss triangles — factors, IBNR, Mack stochastic stats, and assumption diagnostics. Pure-Python, no network access.",
+  "repository": {
+    "url": "https://github.com/datalattice/mcp-chainladder",
+    "source": "github"
+  },
+  "version": "1.2.2",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "mcp-chainladder",
+      "version": "1.2.2",
+      "transport": {
+        "type": "stdio"
+      },
+      "runtimeHint": "uvx"
+    }
+  ]
+}

@@ -8,4 +8,4 @@ which runs the server over stdio.
 from mcp_chainladder.server import mcp
 
 __all__ = ["mcp"]
-__version__ = "1.2.1"
+__version__ = "1.2.2"

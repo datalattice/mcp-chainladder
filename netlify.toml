@@ -1,0 +1,65 @@
+# Netlify deploy config for the marketing site at docs/.
+#
+# This is a pure-static site — no build step, no framework. Netlify
+# just serves the contents of `publish` verbatim. Branch previews work
+# automatically; every push to a non-default branch gets its own URL.
+#
+# Custom domain (chainladder.app) is attached via the Netlify UI; the
+# sitemap and robots.txt already reference that hostname so no churn
+# when the DNS lands.
+
+[build]
+    publish      = "docs"
+    # No build command — the site is hand-written HTML + CSS.
+    command      = ""
+
+[build.processing]
+    # Don't let Netlify rewrite our HTML/CSS — we already keep them
+    # minimal and the predictable byte-for-byte output is easier to
+    # diff during PR review.
+    skip_processing = true
+
+# ---------------------------------------------------------------------------
+# Clean URLs
+# ---------------------------------------------------------------------------
+# Let visitors hit `/pro` and `/install` without the `.html` suffix.
+# Netlify also auto-handles `pretty URLs` natively via `pretty_urls`,
+# but explicit redirects make the routing obvious in code review.
+
+[[redirects]]
+    from   = "/pro"
+    to     = "/pro.html"
+    status = 200
+
+[[redirects]]
+    from   = "/install"
+    to     = "/install.html"
+    status = 200
+
+[[redirects]]
+    from   = "/privacy"
+    to     = "/privacy.html"
+    status = 200
+
+# Anyone landing on the old GitHub Pages path → bounce them to the root.
+[[redirects]]
+    from   = "/mcp-chainladder/*"
+    to     = "/:splat"
+    status = 301
+
+# ---------------------------------------------------------------------------
+# Security headers
+# ---------------------------------------------------------------------------
+# Tight CSP because the site loads zero external resources (matches the
+# privacy policy promise of no third-party calls). Tighten further once
+# Plausible / analytics arrives (add the script src + connect-src then).
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+        X-Frame-Options              = "DENY"
+        X-Content-Type-Options       = "nosniff"
+        Referrer-Policy              = "strict-origin-when-cross-origin"
+        Permissions-Policy           = "camera=(), microphone=(), geolocation=()"
+        Strict-Transport-Security    = "max-age=31536000; includeSubDomains; preload"
+        Content-Security-Policy      = "default-src 'self'; img-src 'self' data: https://img.shields.io; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'self'; form-action 'self' https://*.lemonsqueezy.com; frame-ancestors 'none'"
