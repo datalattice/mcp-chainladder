@@ -237,6 +237,8 @@ parity values to ~1e-9.
 
 ## Pro tier
 
+<< UNDER REVIEW - COMING SOON >>
+
 The free tier covers all 8 tools listed above. **Pro** unlocks
 additional methods + bulk workflows, gated by a local license file
 at `~/.chainladder/license` (or wherever `$CHAINLADDER_LICENSE_FILE`
@@ -280,5 +282,3 @@ URL. The free-tier tools always work regardless of license state.
 MIT. See [`LICENSE`](LICENSE).
 
 
-macOS](https://github.com/datalattice/chainladder) app, which
-exposes the same math through a native UI.
