@@ -279,6 +279,6 @@ URL. The free-tier tools always work regardless of license state.
 
 MIT. See [`LICENSE`](LICENSE).
 
-Built on top of the open-source [Chain Ladder for
+
 macOS](https://github.com/datalattice/chainladder) app, which
 exposes the same math through a native UI.
