@@ -32,13 +32,14 @@
 <header class="hero container">
     <h1>Chain Ladder Pro</h1>
     <p class="tagline">
-        Unlock five additional Pro tools: Bornhuetter-Ferguson, interpretive
+        Five additional Pro tools: Bornhuetter-Ferguson, interpretive
         diagnostics, sensitivity ranking, tail extrapolation, and one-call
-        method comparison. $29 perpetual, one machine, no renewal.
+        method comparison. <strong>Pro licences are currently issued for
+        internal and testing purposes only and are not available to the
+        public.</strong>
     </p>
     <div class="hero-cta">
-        <a href="mailto:support@chainladder.app?subject=Chain%20Ladder%20Pro%20licence%20request&body=Hi%2C%20I%27d%20like%20to%20buy%20a%20Chain%20Ladder%20Pro%20licence.%20Please%20send%20payment%20instructions.%0A%0AThanks%21" class="cta cta-primary">Buy Pro &nbsp;→</a>
-        <a href="install.html" class="cta cta-secondary">Try free first</a>
+        <a href="install.html" class="cta cta-secondary">Install the free tier</a>
     </div>
 </header>
 
@@ -82,7 +83,7 @@
 
 <section class="container">
     <h2>What's on the roadmap</h2>
-    <p class="subhead">Everything below ships free of charge to anyone who buys Pro today — that's the deal, one $29 unlocks all future Pro tools.</p>
+    <p class="subhead">These ship into the Pro tier alongside the existing five. Public availability is paused while the licensing model is reworked.</p>
     <ul style="margin: 0; padding-left: 22px; color: var(--muted); font-size: 15px; line-height: 2;">
         <li><strong>generate_pdf_report</strong> — full 5-page actuarial PDF (cover, triangle, factors, results, 3D loss surface)</li>
         <li><strong>batch_csv_processing</strong> — fold the chain ladder over a directory of triangles</li>
@@ -93,21 +94,19 @@
 </section>
 
 <section class="container">
-    <h2>Pricing</h2>
-    <p class="subhead">One price. One purchase. Lifetime updates within the v1.x line.</p>
+    <h2>Availability</h2>
+    <p class="subhead">The free tier remains open and unchanged.</p>
     <div class="pricing">
         <div class="price-card">
             <h3>Chain Ladder Pro</h3>
-            <div class="price-amount">$29 <small>perpetual</small></div>
+            <div class="price-amount" style="font-size: 1.4rem;">Internal &amp; testing only <small style="display:block; margin-top: 0.4rem;">not currently available to the public</small></div>
             <ul>
-                <li>All 5 Pro tools, unlocked immediately</li>
-                <li>All future Pro tools, free of charge</li>
-                <li>One license per machine, transferable</li>
-                <li>Email support, 30-day refund</li>
-                <li>License never expires; works offline</li>
-                <li>Source-available under MIT</li>
+                <li>Pro licences are not currently issued to external users</li>
+                <li>External installs will continue to return <code>pro_license_required</code> from every Pro tool</li>
+                <li>The free tier (8 tools) keeps working regardless</li>
+                <li>Source remains MIT-licensed on GitHub</li>
             </ul>
-            <a href="mailto:support@chainladder.app?subject=Chain%20Ladder%20Pro%20licence%20request&body=Hi%2C%20I%27d%20like%20to%20buy%20a%20Chain%20Ladder%20Pro%20licence.%20Please%20send%20payment%20instructions.%0A%0AThanks%21" class="cta cta-primary" style="display:block;">Buy Pro &nbsp;→</a>
+            <a href="install.html" class="cta cta-primary" style="display:block;">Install the free tier &nbsp;→</a>
         </div>
     </div>
 </section>
@@ -121,17 +120,17 @@
     <h3>What happens to my data?</h3>
     <p style="color: var(--muted);">Nothing leaves your machine. The MCP server makes no network calls, and the license file is verified locally with an embedded public key. See <a href="privacy.html">the privacy policy</a> for specifics.</p>
 
-    <h3>Can I install it on multiple machines?</h3>
-    <p style="color: var(--muted);">Each license is intended for one machine. The license file isn't hardware-locked, so using it across your laptop and a desktop is fine — we trust you to size the licence count to your actual usage. For multi-seat team deployments, please buy one licence per user; that revenue is what funds the next set of Pro tools.</p>
+    <h3>How do I get a Pro licence right now?</h3>
+    <p style="color: var(--muted);">You don't, unless you're part of the internal/testing programme. Public licensing is paused. The free tier (8 tools — chain ladder, Mack stochastic, Mack diagnostics, projection, CSV parsing, and triangle conversions) remains open to everyone and covers the core actuarial workflow.</p>
 
-    <h3>What's your refund policy?</h3>
-    <p style="color: var(--muted);">If Pro doesn't do what you need within 30 days of purchase, email <a href="mailto:support@chainladder.app">support@chainladder.app</a> and we'll refund in full. No questions, no forms, just a same-week refund.</p>
+    <h3>When will Pro be available again?</h3>
+    <p style="color: var(--muted);">No public timeline. The licensing model is being reworked. Watch the GitHub repository for changes to <code>pro.html</code> or to the README's "Pro tier" section — those are the canonical signals.</p>
 
-    <h3>Will the price stay at $29?</h3>
-    <p style="color: var(--muted);">We may raise prices as more Pro tools land. Whatever price you pay today, that's the price — you're locked in for all v1.x updates and you'll never get a "renew or lose access" email.</p>
+    <h3>What happens to my data?</h3>
+    <p style="color: var(--muted);">Nothing leaves your machine. The MCP server makes no network calls, and the licence check (when one applies) is verified locally with an embedded public key. See <a href="privacy.html">the privacy policy</a> for specifics.</p>
 
-    <h3>Is there a team or firm licence?</h3>
-    <p style="color: var(--muted);">Multi-seat bundles are available on request. Email <a href="mailto:support@chainladder.app">support@chainladder.app</a> with your firm name and approximate seat count and we'll send a quote.</p>
+    <h3>Is the source still open?</h3>
+    <p style="color: var(--muted);">Yes — everything is MIT-licensed on <a href="https://github.com/datalattice/mcp-chainladder">GitHub</a>. The licence check exists to gate the signed-binary distribution; the code itself is readable and modifiable.</p>
 </section>
 
 <footer>
