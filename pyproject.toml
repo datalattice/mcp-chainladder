@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-chainladder"
-version = "1.2.2"
+version = "1.2.3"
 description = "Model Context Protocol server for actuarial chain-ladder reserving — exposes triangle math, Mack stochastic stats, and diagnostics as Claude tools."
 readme = "README.md"
 license = { text = "MIT" }
