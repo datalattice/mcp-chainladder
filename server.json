@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.datalattice/mcp-chainladder",
-  "description": "Actuarial chain-ladder reserving for cumulative loss triangles — factors, IBNR, Mack stochastic stats, and assumption diagnostics. Pure-Python, no network access.",
+  "description": "Actuarial chain-ladder reserving: IBNR, Mack stochastic stats, and assumption diagnostics.",
   "repository": {
     "url": "https://github.com/datalattice/mcp-chainladder",
     "source": "github"
