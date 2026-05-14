@@ -135,7 +135,8 @@ def check_pro_license() -> LicenseStatus:
             message=(
                 f"No Pro license found at {path}. "
                 "Pro tools are gated until a signed license is installed. "
-                f"Buy one at {UPGRADE_URL}."
+                "Pro licenses are currently for internal and testing "
+                "purposes only and are not available to the public."
             ),
         )
     try:
@@ -165,9 +166,10 @@ def check_pro_license() -> LicenseStatus:
             expires=int(data["expires"]) if data.get("expires") else None,
             message=(
                 "License file signature is missing or invalid. "
-                "If this is a fresh purchase, verify you downloaded the "
-                "exact file the seller emailed (no copy-paste). "
-                f"If problems persist, contact support via {UPGRADE_URL}."
+                "Verify the file matches exactly what was issued by the "
+                "internal license team (no copy-paste). "
+                "Pro licenses are currently for internal and testing "
+                "purposes only and are not available to the public."
             ),
         )
 
@@ -180,7 +182,9 @@ def check_pro_license() -> LicenseStatus:
             message=(
                 f"Your Pro license expired at "
                 f"{time.strftime('%Y-%m-%d', time.gmtime(int(expires)))}. "
-                f"Renew at {UPGRADE_URL}."
+                "Pro licenses are currently for internal and testing "
+                "purposes only and are not available to the public; "
+                "contact the internal license team for a renewal."
             ),
         )
 

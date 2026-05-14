@@ -242,7 +242,12 @@ parity values to ~1e-9.
 The free tier covers all 8 tools listed above. **Pro** unlocks
 additional methods + bulk workflows, gated by a local license file
 at `~/.chainladder/license` (or wherever `$CHAINLADDER_LICENSE_FILE`
-points). Get a license at <https://chainladder.app/pro>.
+points).
+
+> **Pro licenses are currently for internal and testing purposes
+> only — not open to the public.** No purchase channel is available
+> at this time. The Pro tools are listed below for reference and
+> will continue to return `pro_license_required` for external users.
 
 | Pro tool | What it does |
 |---|---|
