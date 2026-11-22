@@ -6,6 +6,8 @@
 [![Python](https://img.shields.io/pypi/pyversions/mcp-chainladder.svg)](https://pypi.org/project/mcp-chainladder/)
 [![License](https://img.shields.io/pypi/l/mcp-chainladder.svg)](LICENSE)
 
+[![Chainladder MCP server](https://mcprush.com/badge/chainladder-mcp/card.svg)](https://mcprush.com/to/chainladder-mcp?ref=badge)
+
 **Actuarial chain-ladder reserving for Claude.** A
 [Model Context Protocol](https://modelcontextprotocol.io) server that
 hands Claude the tools to compute IBNR, project ultimates, run Mack
